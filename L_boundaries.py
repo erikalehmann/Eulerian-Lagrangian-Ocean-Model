@@ -1,18 +1,6 @@
 import numpy as np
 import xarray as xr
 
-def apply_boundaries_old(px, py, grounded, nx, ny, dx, dy):
-    # coastline (west)
-    grounded = grounded | (px < 0.5)
-    px = xr.where(px < 0.5, 0, px)
-
-    # open-ocean exits → NaN
-    out = (px > (nx-1)*dx) | (py < 0) | (py > (ny-1)*dy)
-    px = xr.where(out, np.nan, px)
-    py = xr.where(out, np.nan, py)
-
-    return px, py, grounded
-
 def apply_boundaries(
         px, py, grounded,
         nx, ny, dx, dy,
