@@ -12,7 +12,7 @@ import os
 import glob
 
 #%% PARAMETERS & EXPERIMENT
-from parameters.basic_long import *
+from functions.parameters import *
 
 #sigma=6.3
 #bias_strength=0.75
